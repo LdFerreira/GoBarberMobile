@@ -4,6 +4,7 @@ import { Colors } from '../../styles/colors';
 
 interface ContainerProps {
   isFocused: boolean;
+  isErrored: boolean;
 }
 
 export const Container = styled.View<ContainerProps>`
@@ -19,6 +20,11 @@ export const Container = styled.View<ContainerProps>`
   flex-direction: row;
   align-items: center;
 
+  ${(props) =>
+    props.isErrored &&
+    css`
+      border-color: ${Colors.vermelhoErro};
+    `}
   ${(props) =>
     props.isFocused &&
     css`
